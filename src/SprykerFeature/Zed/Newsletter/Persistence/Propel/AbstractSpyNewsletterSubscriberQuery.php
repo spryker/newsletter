@@ -2,7 +2,7 @@
 
 namespace SprykerFeature\Zed\Newsletter\Persistence\Propel;
 
-use SprykerFeature\Zed\Newsletter\Persistence\Propel\Base\SpyNewsletterSubscriberQuery as BaseSpyNewsletterSubscriberQuery;
+use Orm\Zed\Newsletter\Persistence\Base\SpyNewsletterSubscriberQuery as BaseSpyNewsletterSubscriberQuery;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'spy_newsletter_subscriber' table.
@@ -14,7 +14,7 @@ use SprykerFeature\Zed\Newsletter\Persistence\Propel\Base\SpyNewsletterSubscribe
  * long as it does not already exist in the output directory.
  *
  */
-class SpyNewsletterSubscriberQuery extends BaseSpyNewsletterSubscriberQuery
+abstract class AbstractSpyNewsletterSubscriberQuery extends BaseSpyNewsletterSubscriberQuery
 {
 
 }
