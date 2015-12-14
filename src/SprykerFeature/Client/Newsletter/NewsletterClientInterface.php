@@ -4,14 +4,14 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Newsletter\Service\Zed;
+namespace SprykerFeature\Client\Newsletter;
 
 use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionApprovalResultTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionResponseTransfer;
 
-interface NewsletterStubInterface
+interface NewsletterClientInterface
 {
 
     /**

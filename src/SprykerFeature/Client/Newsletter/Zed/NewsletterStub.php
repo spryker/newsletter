@@ -4,19 +4,29 @@
  * (c) Spryker Systems GmbH copyright protected
  */
 
-namespace SprykerFeature\Client\Newsletter\Service;
+namespace SprykerFeature\Client\Newsletter\Zed;
 
 use Generated\Shared\Transfer\NewsletterSubscriberTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionApprovalResultTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer;
 use Generated\Shared\Transfer\NewsletterSubscriptionResponseTransfer;
-use SprykerEngine\Client\Kernel\Service\AbstractClient;
+use SprykerFeature\Client\ZedRequest\ZedRequestClient;
 
-/**
- * @method NewsletterDependencyContainer getDependencyContainer()
- */
-class NewsletterClient extends AbstractClient implements NewsletterClientInterface
+class NewsletterStub implements NewsletterStubInterface
 {
+
+    /**
+     * @var ZedRequestClient
+     */
+    protected $zedStub;
+
+    /**
+     * @param ZedRequestClient $zedStub
+     */
+    public function __construct(ZedRequestClient $zedStub)
+    {
+        $this->zedStub = $zedStub;
+    }
 
     /**
      * @param NewsletterSubscriptionRequestTransfer $newsletterSubscriptionRequest
@@ -25,8 +35,7 @@ class NewsletterClient extends AbstractClient implements NewsletterClientInterfa
      */
     public function subscribeWithSingleOptIn(NewsletterSubscriptionRequestTransfer $newsletterSubscriptionRequest)
     {
-        return $this->getDependencyContainer()->createZedNewsletterStub()
-            ->subscribeWithSingleOptIn($newsletterSubscriptionRequest);
+        return $this->zedStub->call('/newsletter/gateway/subscribe-with-single-opt-in', $newsletterSubscriptionRequest);
     }
 
     /**
@@ -36,8 +45,7 @@ class NewsletterClient extends AbstractClient implements NewsletterClientInterfa
      */
     public function subscribeWithDoubleOptIn(NewsletterSubscriptionRequestTransfer $newsletterSubscriptionRequest)
     {
-        return $this->getDependencyContainer()->createZedNewsletterStub()
-            ->subscribeWithDoubleOptIn($newsletterSubscriptionRequest);
+        return $this->zedStub->call('/newsletter/gateway/subscribe-with-double-opt-in', $newsletterSubscriptionRequest);
     }
 
     /**
@@ -47,8 +55,7 @@ class NewsletterClient extends AbstractClient implements NewsletterClientInterfa
      */
     public function approveDoubleOptInSubscriber(NewsletterSubscriberTransfer $newsletterSubscriber)
     {
-        return $this->getDependencyContainer()->createZedNewsletterStub()
-            ->approveDoubleOptInSubscriber($newsletterSubscriber);
+        return $this->zedStub->call('/newsletter/gateway/approve-double-opt-in-subscriber', $newsletterSubscriber);
     }
 
     /**
@@ -58,8 +65,7 @@ class NewsletterClient extends AbstractClient implements NewsletterClientInterfa
      */
     public function unsubscribe(NewsletterSubscriptionRequestTransfer $newsletterSubscriptionRequest)
     {
-        return $this->getDependencyContainer()->createZedNewsletterStub()
-            ->unsubscribe($newsletterSubscriptionRequest);
+        return $this->zedStub->call('/newsletter/gateway/unsubscribe', $newsletterSubscriptionRequest);
     }
 
     /**
@@ -69,8 +75,7 @@ class NewsletterClient extends AbstractClient implements NewsletterClientInterfa
      */
     public function checkSubscription(NewsletterSubscriptionRequestTransfer $newsletterUnsubscriptionRequest)
     {
-        return $this->getDependencyContainer()->createZedNewsletterStub()
-            ->checkSubscription($newsletterUnsubscriptionRequest);
+        return $this->zedStub->call('/newsletter/gateway/check-subscription', $newsletterUnsubscriptionRequest);
     }
 
 }
