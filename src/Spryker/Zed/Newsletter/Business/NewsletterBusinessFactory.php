@@ -26,7 +26,7 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  * @method NewsletterConfig getConfig()
  * @method NewsletterQueryContainer getQueryContainer()
  */
-class NewsletterDependencyContainer extends AbstractBusinessFactory
+class NewsletterBusinessFactory extends AbstractBusinessFactory
 {
 
     /**

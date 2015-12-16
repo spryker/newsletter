@@ -15,7 +15,7 @@ use Spryker\Zed\Newsletter\NewsletterDependencyProvider;
 /**
  * @method NewsletterConfig getConfig()
  */
-class NewsletterDependencyContainer extends AbstractCommunicationFactory
+class NewsletterCommunicationFactory extends AbstractCommunicationFactory
 {
 
     /**

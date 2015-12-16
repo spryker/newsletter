@@ -11,7 +11,7 @@ use Spryker\Client\Kernel\AbstractFactory;
 use Spryker\Client\Newsletter\Zed\NewsletterStubInterface;
 use Spryker\Client\Newsletter\NewsletterDependencyProvider;
 
-class NewsletterDependencyContainer extends AbstractFactory
+class NewsletterFactory extends AbstractFactory
 {
 
     /**
