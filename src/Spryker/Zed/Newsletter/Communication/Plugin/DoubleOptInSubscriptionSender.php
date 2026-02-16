@@ -62,6 +62,7 @@ class DoubleOptInSubscriptionSender extends AbstractPlugin implements Subscriber
     protected function setMailTransferSubject(MailTransfer $mailTransfer, NewsletterConfig $config)
     {
         $subject = $config->getPasswordRestoreSubject();
+        /** @phpstan-ignore notIdentical.alwaysTrue */
         if ($subject !== null) {
             $mailTransfer->setSubject($this->translate($subject));
         }
