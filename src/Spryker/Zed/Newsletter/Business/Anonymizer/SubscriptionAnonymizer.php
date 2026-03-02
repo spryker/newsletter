@@ -25,10 +25,6 @@ class SubscriptionAnonymizer implements SubscriptionAnonymizerInterface
      */
     protected $requestHandler;
 
-    /**
-     * @param \Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainerInterface $queryContainer
-     * @param \Spryker\Zed\Newsletter\Business\Subscription\SubscriptionRequestHandlerInterface $subscriptionRequestHandler
-     */
     public function __construct(NewsletterQueryContainerInterface $queryContainer, SubscriptionRequestHandlerInterface $subscriptionRequestHandler)
     {
         $this->queryContainer = $queryContainer;

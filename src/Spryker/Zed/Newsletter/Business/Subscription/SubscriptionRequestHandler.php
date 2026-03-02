@@ -54,13 +54,6 @@ class SubscriptionRequestHandler implements SubscriptionRequestHandlerInterface
      */
     protected $utilValidateService;
 
-    /**
-     * @param \Spryker\Zed\Newsletter\Business\Subscription\SubscriptionManagerInterface $subscriptionManager
-     * @param \Spryker\Zed\Newsletter\Business\Subscription\SubscriberManagerInterface $subscriberManager
-     * @param \Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainerInterface $queryContainer
-     * @param \Spryker\Zed\Newsletter\Dependency\Facade\NewsletterToMailInterface $mailFacade
-     * @param \Spryker\Zed\Newsletter\Dependency\Service\NewsletterToUtilValidateServiceInterface $utilValidateService
-     */
     public function __construct(
         SubscriptionManagerInterface $subscriptionManager,
         SubscriberManagerInterface $subscriberManager,

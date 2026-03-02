@@ -22,10 +22,6 @@ class NewsletterTypeInstaller implements NewsletterTypeInstallerInterface
      */
     protected $newsletterTypeCollection;
 
-    /**
-     * @param \Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainerInterface $queryContainer
-     * @param array $newsletterTypeCollection
-     */
     public function __construct(NewsletterQueryContainerInterface $queryContainer, array $newsletterTypeCollection)
     {
         $this->queryContainer = $queryContainer;

@@ -49,9 +49,6 @@ class NewsletterFacadeTest extends Unit
      */
     protected $newsletterFacade;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -60,9 +57,6 @@ class NewsletterFacadeTest extends Unit
         $this->setTestNewsletterTypes();
     }
 
-    /**
-     * @return void
-     */
     public function testSubscribeWithSingleOptInShouldSucceed(): void
     {
         $request = new NewsletterSubscriptionRequestTransfer();
@@ -79,9 +73,6 @@ class NewsletterFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testSubscribeWithSingleOptInFailsWhenEmailIsInvalid(): void
     {
         // Assign
@@ -100,9 +91,6 @@ class NewsletterFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testSubscribeForAlreadySubscribedTypeShouldFail(): void
     {
         $request = new NewsletterSubscriptionRequestTransfer();
@@ -118,9 +106,6 @@ class NewsletterFacadeTest extends Unit
         $this->assertFalse($response->getSubscriptionResults()[0]->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testSubscribeWithDoubleOptInShouldSucceed(): void
     {
         $request = new NewsletterSubscriptionRequestTransfer();
@@ -137,9 +122,6 @@ class NewsletterFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testSubscribeWithDoubleOptInFailsWhenEmailIsInvalid(): void
     {
         // Assign
@@ -158,9 +140,6 @@ class NewsletterFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testApproveDoubleOptInSubscriberShouldSucceed(): void
     {
         $request = new NewsletterSubscriptionRequestTransfer();
@@ -176,9 +155,6 @@ class NewsletterFacadeTest extends Unit
         $this->assertTrue($response->getIsSuccess(), (string)$response->getErrorMessage());
     }
 
-    /**
-     * @return void
-     */
     public function testApproveNonExistentDoubleOptInSubscriberShouldFail(): void
     {
         $subscriber = $this->createSubscriber();
@@ -188,9 +164,6 @@ class NewsletterFacadeTest extends Unit
         $this->assertFalse($response->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testUnsubscribeFromTypesShouldSucceed(): void
     {
         $request = new NewsletterSubscriptionRequestTransfer();
@@ -209,9 +182,6 @@ class NewsletterFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testUnsubscribeFromNotSubscribedTypesShouldFail(): void
     {
         $request = new NewsletterSubscriptionRequestTransfer();
@@ -235,9 +205,6 @@ class NewsletterFacadeTest extends Unit
         }
     }
 
-    /**
-     * @return void
-     */
     public function testCheckSubscriptionForSubscribedTypesShouldSucceed(): void
     {
         $request = new NewsletterSubscriptionRequestTransfer();
@@ -254,9 +221,6 @@ class NewsletterFacadeTest extends Unit
         $this->assertTrue($result->getIsSuccess(), (string)$result->getErrorMessage());
     }
 
-    /**
-     * @return void
-     */
     public function testCheckSubscriptionForNotSubscribedTypesShouldFail(): void
     {
         $request = new NewsletterSubscriptionRequestTransfer();
@@ -271,9 +235,6 @@ class NewsletterFacadeTest extends Unit
         $this->assertFalse($result->getIsSuccess());
     }
 
-    /**
-     * @return void
-     */
     public function testAssignCustomerToExistingSubscriber(): void
     {
         $newsletterSubscriberTransfer = $this->createSubscriber();
@@ -304,9 +265,6 @@ class NewsletterFacadeTest extends Unit
         $this->assertSame($customer->getIdCustomer(), $subscriberEntity->getFkCustomer());
     }
 
-    /**
-     * @return void
-     */
     protected function setNewsletterFacade(): void
     {
         $this->newsletterFacade = new NewsletterFacade();
@@ -323,9 +281,6 @@ class NewsletterFacadeTest extends Unit
         $this->newsletterFacade->setFactory($newsletterBusinessFactory);
     }
 
-    /**
-     * @return void
-     */
     protected function setTestNewsletterTypes(): void
     {
         $typeEntity = new SpyNewsletterType();
@@ -337,9 +292,6 @@ class NewsletterFacadeTest extends Unit
         $typeEntity->save();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\NewsletterSubscriberTransfer
-     */
     protected function createSubscriber(): NewsletterSubscriberTransfer
     {
         $subscriber = new NewsletterSubscriberTransfer();
@@ -349,9 +301,6 @@ class NewsletterFacadeTest extends Unit
         return $subscriber;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\NewsletterSubscriberTransfer
-     */
     protected function createInvalidSubscriber(): NewsletterSubscriberTransfer
     {
         $subscriber = new NewsletterSubscriberTransfer();
@@ -361,11 +310,6 @@ class NewsletterFacadeTest extends Unit
         return $subscriber;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer $request
-     *
-     * @return void
-     */
     protected function addTestType1ToSubscriptionRequest(NewsletterSubscriptionRequestTransfer $request): void
     {
         $type1 = new NewsletterTypeTransfer();
@@ -374,11 +318,6 @@ class NewsletterFacadeTest extends Unit
         $request->addSubscriptionType($type1);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\NewsletterSubscriptionRequestTransfer $request
-     *
-     * @return void
-     */
     protected function addTestType2ToSubscriptionRequest(NewsletterSubscriptionRequestTransfer $request): void
     {
         $type2 = new NewsletterTypeTransfer();

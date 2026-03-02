@@ -20,9 +20,6 @@ class SubscriptionManager implements SubscriptionManagerInterface
      */
     protected $queryContainer;
 
-    /**
-     * @param \Spryker\Zed\Newsletter\Persistence\NewsletterQueryContainerInterface $queryContainer
-     */
     public function __construct(NewsletterQueryContainerInterface $queryContainer)
     {
         $this->queryContainer = $queryContainer;
